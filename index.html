@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Summarizer 🚀</title>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>AI Automation FastAPI 🚀</h1>
+
+    <div class="section">
+        <h2>Summarize Text</h2>
+        <textarea id="textInput" placeholder="Type or paste text here..."></textarea>
+        <button onclick="summarizeText()">Summarize</button>
+        <p id="textSummary"></p>
+    </div>
+
+    <div class="section">
+        <h2>Summarize PDF</h2>
+        <input type="file" id="pdfFile">
+        <button onclick="summarizePDF()">Upload & Summarize</button>
+        <p id="pdfSummary"></p>
+    </div>
+</div>
+
+<script>
+async function summarizeText() {
+    const text = document.getElementById("textInput").value;
+    const res = await fetch("http://127.0.0.1:8000/summarize-text/", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({text})
+    });
+    const data = await res.json();
+    document.getElementById("textSummary").innerText = data.summary;
+}
+
+async function summarizePDF() {
+    const file = document.getElementById("pdfFile").files[0];
+    if(!file) return alert("Please select a PDF file.");
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const res = await fetch("http://127.0.0.1:8000/summarize-pdf/", {
+        method: "POST",
+        body: formData
+    });
+    const data = await res.json();
+    document.getElementById("pdfSummary").innerText = data.summary;
+}
+</script>
+</body>
+</html>

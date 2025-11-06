@@ -1,10 +1,6 @@
-Absolutely bro 💪🔥
-Here’s your **complete professional README.md** — fully formatted in Markdown, ready to paste directly into your GitHub repo.
-It includes badges, sections, code examples, author info, and future upgrades.
 
 ---
 
-````markdown
 # 🤖 AI-Automation-FastAPI 🚀
 A lightweight and efficient **FastAPI-based AI Automation project** that summarizes text and PDF files using **HuggingFace Transformers**.  
 Built for speed, simplicity, and modern backend design — perfect for AI-powered automation workflows.
@@ -45,7 +41,6 @@ Built for speed, simplicity, and modern backend design — perfect for AI-powere
 ```bash
 git clone https://github.com/MOHAMMAD-KAVISH/AI-Automation-FastAPI.git
 cd AI-Automation-FastAPI
-````
 
 ### 2️⃣ Create a virtual environment (recommended)
 
